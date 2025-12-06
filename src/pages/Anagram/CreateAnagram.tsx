@@ -149,8 +149,6 @@ const CreateAnagram = () => {
           formData.append("files_to_upload", q.imageFile);
         }
 
-        formData.append("files_to_upload", q.imageFile as File);
-
         questionsDataPayload.push({
           correct_word: q.word.toUpperCase(),
           question_image_array_index: index,

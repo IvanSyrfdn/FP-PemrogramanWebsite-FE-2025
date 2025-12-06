@@ -73,14 +73,27 @@ export default function MyProjectsPage() {
       const form = new FormData();
       form.append("is_publish", String(isPublish));
 
-      await api.patch(`/api/game/game-type/quiz/${gameId}`, form);
+      // Kirim permintaan PATCH ke server
+      const response = await api.patch(
+        `/api/game/game-type/quiz/${gameId}`,
+        form,
+      );
 
+      // Cek apakah respons OK, jika tidak, log detail error
+      if (!response.ok) {
+        const result = await response.json(); // Ambil respons JSON dari server
+        console.log("Error response:", result); // Log detail error dari backend
+        throw new Error(result.message || "Failed to update status.");
+      }
+
+      // Update status game di UI setelah berhasil
       setProjects((prev) =>
         prev.map((p) =>
           p.id === gameId ? { ...p, is_published: isPublish } : p,
         ),
       );
 
+      // Tampilkan notifikasi sukses
       toast.success(
         isPublish ? "Published successfully" : "Unpublished successfully",
       );

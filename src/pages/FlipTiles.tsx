@@ -841,7 +841,7 @@ function GameCompleteOverlay({ onRestart }: { onRestart: () => void }) {
           variant="muted"
           className="text-xl text-slate-600 mb-10 font-medium max-w-sm mx-auto leading-relaxed"
         >
-          You've successfully cleared all the tiles. Amazing memory!
+          You've successfully cleared all the tiles. Great Job!
         </Typography>
 
         <Button

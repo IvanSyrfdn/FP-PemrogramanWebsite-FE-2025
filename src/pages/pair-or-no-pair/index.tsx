@@ -1146,11 +1146,15 @@ const PairOrNoPairGame = () => {
       });
 
       // Submit score to leaderboard
+      const token = localStorage.getItem("token");
       const response = await fetch(
         `${import.meta.env.VITE_API_URL}/api/game/game-type/pair-or-no-pair/${gameId}/evaluate`,
         {
           method: "POST",
-          headers: { "Content-Type": "application/json" },
+          headers: {
+            "Content-Type": "application/json",
+            ...(token && { Authorization: `Bearer ${token}` }),
+          },
           body: JSON.stringify({
             score: score,
             difficulty: difficulty,

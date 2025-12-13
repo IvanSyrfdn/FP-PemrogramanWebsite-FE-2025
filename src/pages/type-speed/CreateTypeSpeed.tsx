@@ -139,8 +139,7 @@ export default function CreateTypeSpeed() {
           <div>
             <Typography variant="h3">Create Type Speed Game</Typography>
             <Typography variant="p" className="mt-2">
-              Build your typing speed challenge game (Content determined by
-              player at start)
+              Build your typing speed challenge game
             </Typography>
           </div>
 

@@ -521,7 +521,7 @@ export default function PlayCrossword() {
                     </span>
                   )}
                   <input
-                    ref={el => {
+                    ref={(el) => {
                       inputRefs.current[r][c] = el;
                     }}
                     type="text"
